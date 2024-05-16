@@ -75,6 +75,7 @@ import net.ezra.R
 import net.ezra.navigation.ROUTE_CATEGORY
 import net.ezra.navigation.ROUTE_HOME
 import net.ezra.navigation.ROUTE_PROFILES
+import net.ezra.navigation.ROUTE_REGISTER
 import net.ezra.ui.home.BottomNavigationItem
 import net.ezra.ui.registration.items
 
@@ -334,64 +335,7 @@ fun CategoryScreen(navController: NavHostController) {
 
                         ) {
                             item {
-                                Box(
-                                    contentAlignment = Alignment.Center,
-                                    modifier = Modifier
-                                        .clip(RoundedCornerShape(30.dp))
-                                        .background(Color(0xffFFB6C1))
-                                        .size(width = 200.dp, height = 120.dp)
 
-                                ){
-                                    Text(
-                                        text = "Child Care",
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.SemiBold,
-                                        color = Color(0xfff5f0ee),
-                                    )
-                                    Spacer(modifier = Modifier.width(5.dp))
-
-                                }
-                                Spacer(modifier = Modifier.width(10.dp))
-
-                                Box(
-                                    contentAlignment = Alignment.Center,
-                                    modifier = Modifier
-                                        .clip(RoundedCornerShape(30.dp))
-                                        .background(Color(0xffCBC3E3))
-                                        .size(width = 200.dp, height = 120.dp)
-                                ){
-                                    Text(
-                                        text = "Cooking",
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.SemiBold,
-                                        color = Color(0xfff5f0ee),
-                                    )
-
-                                    Spacer(modifier = Modifier.width(5.dp))
-
-
-                                }
-
-                                Spacer(modifier = Modifier.width(10.dp))
-
-                                Box(
-                                    contentAlignment = Alignment.Center,
-                                    modifier = Modifier
-                                        .clip(RoundedCornerShape(30.dp))
-                                        .background(Color(0xffFFD580))
-                                        .size(width = 200.dp, height = 120.dp)
-                                ){
-                                    Text(
-                                        text = "Laundry",
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.SemiBold,
-                                        color = Color(0xfff5f0ee),
-                                    )
-                                    Spacer(modifier = Modifier.width(5.dp))
-
-
-
-                                }
                             }
                         }
                         Spacer(modifier = Modifier.height(10.dp))
@@ -584,6 +528,59 @@ fun CategoryScreen(navController: NavHostController) {
                             }
                         }
                         Spacer(modifier = Modifier.height(5.dp))
+                            Column(
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.fillMaxSize()
+
+                            ) {
+                                Card(
+                                    onClick = {
+                                        navController.navigate(ROUTE_REGISTER)
+
+                                    },
+                                    colors = CardDefaults.cardColors(Color(0xffFFB6C1)),
+                                    elevation =CardDefaults.cardElevation(10.dp),
+                                    border = BorderStroke(2.dp, Color.Black),
+                                )
+                                {
+                                    Text(
+                                        text = "House Manager or seeking to be hired",
+                                        fontWeight = FontWeight.ExtraBold,
+                                        fontSize = 12.sp,
+                                        color = Color.Black,
+                                        modifier = Modifier
+                                            .padding(16.dp)
+                                    )
+
+
+                                }
+                                Spacer(modifier = Modifier.width(20.dp))
+                                Card(
+                                    onClick = {
+                                        navController.navigate(ROUTE_REGISTER)
+
+                                    },
+                                    colors = CardDefaults.cardColors(Color(0xff90ee90)),
+                                    elevation =CardDefaults.cardElevation(10.dp),
+                                    border = BorderStroke(2.dp, Color.Black),
+                                )
+                                {
+                                    Text(
+                                        text = "Looking for a house manager??",
+                                        fontWeight = FontWeight.ExtraBold,
+                                        fontSize = 12.sp,
+                                        color = Color.Black,
+                                        modifier = Modifier
+                                            .padding(16.dp)
+                                    )
+
+
+                                }
+
+
+
+                            }
 
 
                         }

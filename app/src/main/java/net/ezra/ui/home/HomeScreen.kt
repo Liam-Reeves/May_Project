@@ -115,7 +115,7 @@ data class  BottomNavigationItem(
     val unselectedIcon: ImageVector,
     val hasNews: Boolean,
     val badgeCount: Int? = null,
-    val onClick: Any,
+
 
 
     )
@@ -129,7 +129,7 @@ data class  BottomNavigationItem(
         unselectedIcon = Icons.Outlined.Home,
         hasNews = false,
 
-        onClick = {(ROUTE_HOME) }
+
     ),
 
     BottomNavigationItem(
@@ -137,7 +137,7 @@ data class  BottomNavigationItem(
         selectedIcon = Icons.Filled.AccountCircle,
         unselectedIcon = Icons.Outlined.AccountCircle,
         hasNews = false,
-        onClick = { ROUTE_PROFILES },
+
 
 
         ),
@@ -148,8 +148,6 @@ data class  BottomNavigationItem(
         unselectedIcon = Icons.Outlined.Search,
         hasNews = false,
         badgeCount = 9,
-        onClick = { ROUTE_CATEGORY },
-
     ),
 
     BottomNavigationItem(
@@ -157,7 +155,7 @@ data class  BottomNavigationItem(
         selectedIcon = Icons.Filled.Settings,
         unselectedIcon = Icons.Outlined.Settings,
         hasNews = false,
-        onClick = { ROUTE_HOME },
+
 
     ),
 
@@ -401,7 +399,9 @@ fun HomeScreen(navController: NavHostController) {
 
 
                             Card(
-                                onClick = {navController.navigate(ROUTE_REGISTRATION)},
+                               onClick = {
+                                         navController.navigate(ROUTE_CATEGORY)
+                               },
                                 elevation = CardDefaults.cardElevation(20.dp),
                                 colors = CardDefaults.cardColors(Color(0xff87CEEB)),
                                 modifier = Modifier

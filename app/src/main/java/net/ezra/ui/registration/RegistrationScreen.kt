@@ -327,7 +327,6 @@ fun RegistrationScreen(navController: NavHostController) {
                             Spacer(modifier = Modifier.width(20.dp))
                             Card(
                                 onClick = {
-                                    navController.navigate(ROUTE_REGISTER)
 
                                 },
                                 colors = CardDefaults.cardColors(Color(0xff90ee90)),

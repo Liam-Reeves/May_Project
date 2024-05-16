@@ -119,25 +119,24 @@ data class  BottomNavigationItem(
     val unselectedIcon: ImageVector,
     val hasNews: Boolean,
     val badgeCount:Int? = null,
-    val onClick: Any,
+
 )
-fun MyBottomNavigation(navController: NavHostController) {
+
     val items= listOf(
         BottomNavigationItem(
             title = "Home",
             selectedIcon = Icons.Filled.Home,
             unselectedIcon = Icons.Outlined.Home,
             hasNews = false,
-
-            onClick = { navController.navigate(ROUTE_HOME) }
         ),
+
 
         BottomNavigationItem(
             title = "Profile",
             selectedIcon = Icons.Filled.AccountCircle,
             unselectedIcon = Icons.Outlined.AccountCircle,
             hasNews = false,
-            onClick = { ROUTE_PROFILES },
+
 
 
             ),
@@ -148,7 +147,7 @@ fun MyBottomNavigation(navController: NavHostController) {
             unselectedIcon = Icons.Outlined.Search,
             hasNews = false,
             badgeCount = 9,
-            onClick = { ROUTE_CATEGORY },
+
 
             ),
 
@@ -157,14 +156,14 @@ fun MyBottomNavigation(navController: NavHostController) {
             selectedIcon = Icons.Filled.Settings,
             unselectedIcon = Icons.Outlined.Settings,
             hasNews = false,
-            onClick = { ROUTE_HOME },
+
 
             ),
 
         )
 
 
-}
+
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
