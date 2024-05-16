@@ -12,13 +12,13 @@ import net.ezra.ui.SplashScreen
 import net.ezra.ui.about.AboutScreen
 import net.ezra.ui.auth.LoginScreen
 import net.ezra.ui.auth.SignUpScreen
+import net.ezra.ui.category.CategoryScreen
 import net.ezra.ui.dashboard.DashboardScreen
 //import net.ezra.ui.auth.SignupScreen
 import net.ezra.ui.home.HomeScreen
 import net.ezra.ui.location.LocationScreen
-import net.ezra.ui.students.AddStudents
-import net.ezra.ui.students.Search
-import net.ezra.ui.students.Students
+import net.ezra.ui.profiles.ProfilesScreen
+
 
 @Composable
 fun AppNavHost(
@@ -56,21 +56,13 @@ fun AppNavHost(
         }
 
 
-        composable(ROUTE_ADD_STUDENTS) {
-            AddStudents(navController)
-        }
+
 
         composable(ROUTE_SPLASH) {
             SplashScreen(navController)
         }
 
-        composable(ROUTE_VIEW_STUDENTS) {
-           Students(navController = navController, viewModel = viewModel() )
-        }
 
-        composable(ROUTE_SEARCH) {
-            Search(navController)
-        }
 
         composable(ROUTE_DASHBOARD) {
             DashboardScreen(navController)
@@ -88,6 +80,20 @@ fun AppNavHost(
         composable(ROUTE_LOCATION){
             LocationScreen(navController )
         }
+
+        composable(ROUTE_PROFILES){
+           ProfilesScreen(navController )
+        }
+
+
+        composable(ROUTE_REGISTRATION){
+            ProfilesScreen(navController )
+        }
+
+        composable(ROUTE_CATEGORY){
+           CategoryScreen(navController )
+        }
+
 
 
 

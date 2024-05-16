@@ -4,6 +4,7 @@ package net.ezra.ui.dashboard
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.content.res.Configuration
 import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -35,7 +36,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -46,10 +49,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import net.ezra.navigation.ROUTE_LOGIN
-
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.firestore
-import net.ezra.navigation.ROUTE_ADD_STUDENTS
 import net.ezra.navigation.ROUTE_DASHBOARD
 import net.ezra.navigation.ROUTE_HOME
 import net.ezra.navigation.ROUTE_PROFILES
@@ -161,10 +162,14 @@ fun DashboardScreen(navController: NavHostController)  {
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    Text(text = "Dashboard", color = Color.White)
+                    Text(
+                        text = "Dashboard",
+                        color = Color.Black,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 20.sp)
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color(0xff0FB06A),
+                    containerColor = Color(0xff87CEEB),
                     titleContentColor = Color.White,
                 ),
                 navigationIcon = {
@@ -181,7 +186,13 @@ fun DashboardScreen(navController: NavHostController)  {
         },
 
         bottomBar = {
-            NavigationBar(
+          NavigationBar(
+              containerColor = Color(0xff87CEEB),
+              contentColor = Color.White,
+              modifier = Modifier
+                  .padding(horizontal = 8.dp, vertical = 50.dp)
+                  .clip(RoundedCornerShape(30.dp))
+              ,
 
             ) {
                 items.forEachIndexed{ index, item ->
@@ -216,7 +227,7 @@ fun DashboardScreen(navController: NavHostController)  {
                                     } else item.unselectedIcon,
 
                                     contentDescription = item.title,
-                                    tint = Color(0xff87CEEB)
+                                    tint = Color.White,
 
                                 )
 
@@ -287,7 +298,7 @@ fun DashboardScreen(navController: NavHostController)  {
                             Spacer(modifier = Modifier.height(10.dp))
                             OutlinedButton(onClick = {
 
-                                navController.navigate(ROUTE_ADD_STUDENTS) {
+                                navController.navigate(ROUTE_HOME) {
                                     popUpTo(ROUTE_DASHBOARD) { inclusive = true }
                                 }
 
